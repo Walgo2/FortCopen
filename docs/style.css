@@ -1,0 +1,117 @@
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url('data/Dosis-VariableFont_wght.ttf');
+}
+*{
+    font-family: 'Roboto-Regular';
+    box-sizing: border-box;  
+}
+body
+{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(21, 27, 29);
+    font-size: 1.15em;
+    color: white;
+}
+main
+{
+    margin: 0rem auto 0rem auto;
+    width: 90%;
+}
+nav
+{
+    position: absolute;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    flex-direction: row;
+    top: 0;
+}
+nav button {
+    margin: 0 5px;
+    padding: 8px 15px;
+    background-color: #444;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: larger;
+}
+header img
+{
+    width: 100%;
+    height: auto;
+}
+img
+{
+    max-width: 100%;
+    max-height: auto;
+}
+footer
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.HearderBanner
+{
+    position: absolute;
+    left: 0;
+    top: 15%;
+    background-image: linear-gradient(to right, rgb(15, 16, 17) , rgba(15, 16, 17, 0));
+    padding: 1rem 10rem 1rem 0rem;
+}
+header h1
+{
+    color: white;
+    background-color: transparent;
+    font-size: 2rem;
+}
+header p
+{
+    color: white;
+    background-color: transparent;
+    font-size: 1.8rem;
+}
+header p, header h1
+{
+    padding: 0rem 0rem 1rem 3rem;
+    margin: 0;
+}
+li
+{
+    font-weight: bold;
+}
+a
+{
+    text-decoration: underline;
+    color: white;
+}
+@media screen and (max-width:768px){
+    .HearderBanner
+    {
+    position: relative;
+    background-image: none;
+    padding: 2rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    }
+    header p, header h1
+    {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    }
+}
+@media screen and (max-width:576px){
+    footer
+    {
+        text-align: center;
+    }
+    .center
+    {
+        text-align: center;
+    }
+}

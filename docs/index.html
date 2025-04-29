@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="cs-cz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="FortCopen, Anti Copenheimer, Comenheimer, The Fifth Collumn, Walgo2, W2, Tomikraft, Minecraft, Server, Secutrity, Port, Windows, 11, 10, Firewall, Discord, ">
+    <meta name="author" content="W2">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../dogo.ico" type="image/x-icon">
+    <title>FortCopen</title>
+</head>
+<body>
+    <nav>
+        <button onclick="setLang('cz')">Čeština</button>
+        <button onclick="setLang('en')">English</button>
+    </nav>
+    <header>
+        <img src="data/HearderBanner.jpg" alt="Header banner Minecraft">
+        <div class="HearderBanner">
+            <h1>FortCopen</h1>
+        <p id="subtitle-cz">Firewallový štít pro Minecraft servery</p>
+        <p id="subtitle-en" style="display: none;">A firewall shield for Minecraft servers</p>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Czech -->
+        <div id="lang-cz">
+            <section class="center">
+                <h2>Proč FortCopen vznikl?</h2>
+                <p>Stal jsem se obětí projektu <strong>Copenheimer</strong>, což byla organizovaná skupina zaměřená na útoky na Minecraft servery. Rozhodl jsem se vytvořit nástroj, který automaticky blokuje neautorizované IP adresy a zároveň upozorňuje administrátory pomocí Discord webhooků.</p>
+            </section>
+    
+            <section class="center">
+                <h2>Co FortCopen umí?</h2>
+                <ul>
+                    <li>⛔ Detekuje pokusy o připojení mimo whitelist</li>
+                    <li>🧱 Automaticky přidává pravidla do Windows Firewallu</li>
+                    <li>📡 Posílá upozornění na Discord s IP a jménem hráče</li>
+                    <li>🖥️ Nabízí přehledné grafické rozhraní pro správu IP adres</li>
+                </ul>
+            </section>
+    
+            <section class="center">
+                <h2>Jak začít?</h2>
+                <p>Stáhni si <a href="https://github.com/Walgo2/FortCopen/releases/tag/v1.0.0" target="_blank">nejnovější verzi</a>, spusť ji jako správce a nastav whitelist a port. Pokud chybí Npcap, FortCopen se postará o instalaci.</p>
+            </section>
+    
+            <section class="center">
+                <h2>📥 Ke stažení</h2>
+                <p><a href="https://github.com/Walgo2/FortCopen/releases/tag/v1.0.0" target="_blank">➡️ FortCopen v1.0 na GitHubu</a></p>
+            </section>
+        </div>
+    
+        <!-- English -->
+        <div id="lang-en" style="display: none;">
+            <section class="center">
+                <h2>Why was FortCopen created?</h2>
+                <p>I was a victim of the <strong>Copenheimer</strong> project — a coordinated group attacking Minecraft servers. I decided to create a tool that automatically blocks unauthorized IPs and alerts administrators using Discord webhooks.</p>
+            </section>
+    
+            <section class="center">
+                <h2>What can FortCopen do?</h2>
+                <ul>
+                    <li>⛔ Detects connection attempts outside the whitelist</li>
+                    <li>🧱 Automatically adds Windows Firewall rules</li>
+                    <li>📡 Sends alerts to Discord with IP and player name</li>
+                    <li>🖥️ Provides a simple GUI to manage IPs and ports</li>
+                </ul>
+            </section>
+    
+            <section class="center">
+                <h2>Getting Started</h2>
+                <p>Download the <a href="https://github.com/Walgo2/FortCopen/releases/tag/v1.0.0" target="_blank">latest version</a>, run it as administrator, and configure the whitelist and port. If Npcap is missing, FortCopen will handle the installation automatically.</p>
+            </section>
+    
+            <section class="center">
+                <h2>📥 Download</h2>
+                <p><a href="https://github.com/Walgo2/FortCopen/releases/tag/v1.0.0" target="_blank">➡️ FortCopen v1.0 on GitHub</a></p>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Walgo2 • A project against the Copenheimer threat • <a href="https://github.com/Walgo2/FortCopen" target="_blank">GitHub Repository</a></p>
+    </footer>
+    
+    <script>
+    function setLang(lang) {
+        document.getElementById("lang-cz").style.display = lang === "cz" ? "block" : "none";
+        document.getElementById("lang-en").style.display = lang === "en" ? "block" : "none";
+        document.getElementById("subtitle-cz").style.display = lang === "cz" ? "block" : "none";
+        document.getElementById("subtitle-en").style.display = lang === "en" ? "block" : "none";
+    }
+    </script>
+</body>
+</html>
