@@ -22,7 +22,7 @@ Poté, co byl můj server cílem koordinovaného útoku, jsem zjistil, že běž
   - nastavit RCON konfiguraci,
   - otevírat log firewallu.
 
-## 🔐 Integrace s RCON (NOVINKA ve verzi 1.5)
+## 🔐 Integrace s RCON
 
 FortCopen nově umožňuje vzdálené ovládání serveru přes **RCON**:
 
