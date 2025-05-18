@@ -8,7 +8,7 @@ After my server was targeted by a coordinated attack, I realized that typical Mi
 
 ## ⚙️ How It Works
 
-- Monitors traffic on a selected port
+- Monitors traffic on a selected port.
 - Analyzes Minecraft handshake and login packets.
 - Compares IP addresses with a whitelist.
 - Automatically:
