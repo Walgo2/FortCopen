@@ -1,47 +1,64 @@
 # 🛡️ FortCopen
 
-FortCopen je obranná aplikace určená pro Minecraft servery. Byl jsem obětí projektu **Copenheimer**, což mě motivovalo vytvořit tento nástroj, který chrání servery před útoky podobných skupin a zároveň posílá upozornění na **Discord**.
+**FortCopen** je obranná aplikace určená pro ochranu Minecraft serverů. Byl jsem obětí projektu **Copenheimer**, což mě motivovalo vytvořit tento nástroj, který chrání servery před podobnými skupinovými útoky a odesílá upozornění v reálném čase na **Discord**.
 
 ## 🚨 Proč FortCopen?
 
-Po útoku z organizované skupiny útočníků jsem si uvědomil, že běžné zabezpečení Minecraft serverů není dostatečné. FortCopen vznikl jako reakce – jednoduchý, ale účinný firewallový nástroj s integrací do Discordu, který automaticky rozpozná podezřelé připojení, zablokuje IP adresu a upozorní adminy.
+Poté, co byl můj server cílem koordinovaného útoku, jsem zjistil, že běžná ochrana Minecraft serverů nestačí. FortCopen vznikl jako reakce — jednoduchý, ale účinný nástroj, který detekuje podezřelou aktivitu a okamžitě upozorňuje správce.
 
-## ⚙️ Jak to funguje?
+## ⚙️ Jak to funguje
 
-- **Monitoruje připojení na zvoleném portu (např. 25565)** pomocí knihovny `scapy`.
-- Analyzuje Minecraft handshake packety a pokusy o přihlášení.
+- Monitoruje síťový provoz na zvoleném portu.
+- Analyzuje Minecraft handshake a login pakety.
 - Porovnává IP adresy s whitelistem.
 - Automaticky:
-  - blokuje neautorizované IP pomocí Windows Firewall (`netsh`),
-  - posílá upozornění na Discord webhook s informací o IP a přezdívce hráče.
-- Má **grafické rozhraní (Tkinter GUI)**, kde můžeš:
-  - spravovat whitelist/blacklist,
-  - přidávat Discord webhooky,
+  - blokuje nepovolené IP adresy,
+  - odesílá upozornění na Discord webhooky s IP adresou a uživatelským jménem,
+  - vytváří zálohy světa serveru při specifických událostech.
+- Obsahuje grafické rozhraní (**Tkinter GUI**), ve kterém lze:
+  - spravovat whitelist a blacklist,
+  - přidávat/mazat Discord webhooky,
   - měnit cílový port,
-  - zobrazit firewall logy.
+  - nastavit RCON konfiguraci,
+  - otevírat log firewallu.
 
-## 📁 Co obsahuje projekt
+## 🔐 Integrace s RCON (NOVINKA ve verzi 1.5)
 
-- `FortCopen.py` – hlavní kód aplikace.
-- `env.txt` – konfigurační soubor s whitelistem, webhooky a portem.
-- `_internal/` – interní závislosti, které musí být součástí instalace.
-- `dogo.ico` – ikona aplikace.
-- `.iss` soubor – instalační skript pro Inno Setup.
+FortCopen nově umožňuje vzdálené ovládání serveru přes **RCON**:
+
+- Udělování a odebírání **OP** práv hráčům.
+- Přepínání hráčů mezi módy **Spectator** a **Survival**.
+- Odeslání příkazu **`reload`** přímo z aplikace.
+- Nastavení `rcon.port`, `rcon.password` a `enable-rcon` pomocí GUI.
+- Server se po změně RCON nastavení automaticky vypne a znovu spustí.
+
+## 💾 Automatické zálohy
+
+FortCopen chrání svět serveru pomocí pravidelných záloh:
+
+- Automatická záloha **každou hodinu**.
+- Další zálohy probíhají při:
+  - pokusu o připojení nepovoleného hráče,
+  - změně OP statusu nebo herního režimu hráče,
+  - ručním vypnutí serveru přes GUI,
+  - ručním spuštění zálohy tlačítkem v aplikaci.
+
+Zálohy jsou ukládány do složek s časovým razítkem uvnitř adresáře serveru.
+
+## 🚀 Automatické spuštění serveru
+
+- Pokud je v `env.txt` nastaven `BAT_PATH`, Minecraft server se při spuštění FortCopen **automaticky spustí**, pokud již neběží.
 
 ## 🧪 Požadavky
 
-- Windows (s povoleným záznamem firewall logů)
-- Administrátorská oprávnění
+- Windows (s aktivovaným logováním firewallu)
+- Práva správce (administrator)
+- Nainstalovaný [Npcap](https://npcap.com/) (instalátor nabídne stažení, pokud chybí)
 
-## 🔗 Instalace
+## 📡 Upozornění na Discord
 
-Instalátor vytvoří všechny potřebné soubory, včetně `env.txt`. Pokud `Npcap` není nainstalován, nabídne jeho stažení automaticky.
-
-## 📡 Discord notifikace
-
-Do GUI lze zadat libovolný počet Discord webhook URL. Pokud dojde k podezřelému připojení, FortCopen odešle upozornění s IP adresou a jménem hráče.
+Do GUI lze přidat jeden nebo více Discord webhooků. Když dojde k pokusu o neautorizované připojení, FortCopen odešle upozornění s IP adresou a jménem hráče.
 
 ---
 
-💬 Pokud máš dotazy nebo návrhy na zlepšení, otevři issue nebo vytvoř pull request.
-
+💬 **Neváhej vytvořit issue nebo pull request**, pokud máš návrh, otázku nebo se chceš zapojit do vývoje.
