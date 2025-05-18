@@ -22,7 +22,7 @@ After my server was targeted by a coordinated attack, I realized that typical Mi
   - edit RCON configuration,
   - open firewall logs.
 
-## 🔐 RCON Integration (NEW in 1.5)
+## 🔐 RCON Integration
 
 FortCopen now includes advanced control over your server via **RCON**:
 
