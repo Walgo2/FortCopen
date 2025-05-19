@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://walgo2.github.io/FortCopen/sitemap.xml
